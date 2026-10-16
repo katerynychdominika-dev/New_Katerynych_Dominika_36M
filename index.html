@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Книжкова полиця — інтернет-магазин книжок</title>
+  <meta name="description" content="Книжкова полиця — інтернет-магазин книжок. Відкривай новинки, бестселери, художню літературу, психологію, бізнес-книжки та видання для дітей.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/vendor/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти до основного вмісту</a>
+
+  <!-- announcement -->
+  <div class="announce" id="announce">
+    <div class="shell">
+      <span>Відкривай нові історії та знаходь книжки до душі</span>
+      <button class="announce-close" id="announceClose" aria-label="Закрити оголошення">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- header -->
+  <header class="site-header" id="header">
+    <div class="shell nav-wrap">
+      <a class="brand" href="index.html" aria-label="Книжкова полиця — головна сторінка">
+        <span class="mark" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l1.4-3.2A2 2 0 0 1 7.2 3.6h9.6a2 2 0 0 1 1.8 1.2L20 8M4 8h16v10.4A1.6 1.6 0 0 1 18.4 20H5.6A1.6 1.6 0 0 1 4 18.4V8zM9 12a3 3 0 0 0 6 0"/></svg>
+        </span>
+        Книжкова полиця
+      </a>
+
+      <nav class="main-nav" aria-label="Головне меню">
+        <a href="#collection">Новинки</a>
+        <a href="#categories">Каталог</a>
+        <a href="#categories">Художня література</a>
+        <a href="#sale">Акції</a>
+        <a href="#reviews">Відгуки</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Пошук">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn" aria-label="Мій профіль">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Кошик, 2 товари">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M2 3h2.2l2.2 12.4A1.6 1.6 0 0 0 8 16.7h9.4a1.6 1.6 0 0 0 1.6-1.3L20.6 7H6"/></svg>
+          <span class="cart-count" id="cartCount" aria-hidden="true">2</span>
+        </button>
+        <button class="icon-btn nav-toggle" id="navToggle" aria-label="Відкрити меню" aria-expanded="false" aria-controls="drawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- mobile drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="drawer" id="drawer" aria-label="Мобільне меню" aria-hidden="true">
+    <div class="drawer-head">
+      <span class="brand">Книжкова полиця</span>
+      <button class="icon-btn" id="drawerClose" aria-label="Закрити меню">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav aria-label="Мобільна навігація">
+      <a href="#collection">Новинки</a>
+      <a href="#categories">Каталог</a>
+      <a href="#categories">Художня література</a>
+      <a href="#sale">Акції</a>
+      <a href="#reviews">Відгуки</a>
+    </nav>
+    <div class="drawer-foot">
+      <a href="#collection" class="btn-e btn-cobalt btn-block">Обрати книжку</a>
+    </div>
+  </aside>
+
+  <main id="main">
+    <!-- hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Читай більше. Відчувай глибше.</span>
+          <h1 id="hero-title">Твоя наступна улюблена книжка вже тут.</h1>
+          <p class="lead">Від бестселерів, про які говорить увесь світ, до історій, що залишаються з тобою надовго. Знаходь книжки під свій настрій, відкривай нових авторів і створюй власну бібліотеку.</p>
+          <div class="hero-cta">
+            <a href="#collection" class="btn-e btn-cobalt btn-lg">Обрати книжку</a>
+            <a href="#categories" class="text-link">Переглянути каталог
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="hero-stats">
+            <div><span class="num">8</span><span class="lbl">книжок у добірці</span></div>
+            <div><span class="num">3</span><span class="lbl">книжкові категорії</span></div>
+            <div><span class="num">∞</span><span class="lbl">історій для відкриття</span></div>
+          </div>
+        </div>
+        <div class="hero-media reveal">
+          <div class="frame">
+            <img src="images/Твоя наступна улюблена книжка вже тут..webp" alt="Добірка книжок для головного банера магазину" width="1280" height="800">
+          </div>
+          <span class="hero-drop-tag">Нові історії</span>
+          <div class="hero-badge">
+            <span class="ring" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </span>
+            <span><b>Книжкова добірка</b><span>Історії на будь-який настрій</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Бестселери та книжкові новинки</span><span>Історії на будь-який настрій</span><span>Книжки для розвитку</span><span>Ідеї для подарунків</span><span>Читання, яке надихає</span>
+        <span>Бестселери та книжкові новинки</span><span>Історії на будь-який настрій</span><span>Книжки для розвитку</span><span>Ідеї для подарунків</span><span>Читання, яке надихає</span>
+      </div>
+    </div>
+
+    <!-- categories -->
+    <section class="section" id="categories" aria-labelledby="cat-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Книжкові категорії</span>
+          <h2 id="cat-title">Знайди свою наступну історію</h2>
+          <p>Від пригод і романтики до психології та саморозвитку — обирай те, що відгукується саме тобі.</p>
+        </div>
+        <div class="cat-grid">
+          <a class="cat-card reveal" href="#collection">
+            <img src="images/художня_література.webp" alt="Обкладинка книжки «Обитель помаранчевого дерева» Саманти Шеннон" width="600" height="700">
+            <div class="cat-body">
+              <span class="kicker">Романи, детективи, фентезі та світові бестселери.</span>
+              <h3>Художня література</h3>
+              <span class="go">Переглянути книжки
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+          <a class="cat-card reveal d1" href="#collection">
+            <img src="images/нонфікшн.png" alt="Обкладинка книжки з категорії нонфікшн про внутрішню свободу" width="600" height="700">
+            <div class="cat-body">
+              <span class="kicker">Психологія, бізнес, звички та нові погляди на життя.</span>
+              <h3>Нонфікшн і саморозвиток</h3>
+              <span class="go">Переглянути книжки
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+          <a class="cat-card reveal d2" href="#collection">
+            <img src="images/дитячі книги.jpeg" alt="Обкладинка книжки «Пригоди Аліси в Дивокраї»" width="600" height="700">
+            <div class="cat-body">
+              <span class="kicker">Казки, пригоди та історії для маленьких читачів.</span>
+              <h3>Дитячі книжки</h3>
+              <span class="go">Переглянути книжки
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- product grid -->
+    <section class="section" id="collection" style="padding-top:0" aria-labelledby="coll-title">
+      <div class="shell">
+        <div class="section-head">
+          <span class="eyebrow">Новинки та бестселери</span>
+          <h2 id="coll-title">Книжки, які варто відкрити</h2>
+          <p>Добірка історій, які захоплюють із перших сторінок, надихають на зміни та допомагають побачити світ по-іншому.</p>
+        </div>
+
+        <div class="filter-bar" role="group" aria-label="Фільтрувати книжки за категорією">
+          <button class="chip active" data-filter="all">Усі книжки</button>
+          <button class="chip" data-filter="fiction">Художня література</button>
+          <button class="chip" data-filter="psychology">Психологія</button>
+          <button class="chip" data-filter="business">Бізнес</button>
+          <button class="chip" data-filter="children">Дитячі книжки</button>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+          <!-- 1 -->
+          <article class="card-p reveal" data-category="fiction">
+            <div class="card-p-media">
+              <span class="tag sale">Бестселер</span>
+              <button class="wishlist" aria-label="Додати книжку до списку бажань" aria-pressed="false">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+              </button>
+              <a href="#collection"><img src="images/кафе на краю світу.jpeg" alt="Обкладинка книжки «Кав'ярня на краю світу»" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Художня проза</span>
+              <h3><a href="#collection">Кав'ярня на краю світу</a></h3>
+              <div class="card-p-rate">Автор: Джон Стрелекі. Книга про пошук сенсу життя, власних цілей і відповідей на важливі запитання.</div>
+              <div class="card-p-foot">
+                <span class="price">320 грн</span>
+                <button class="add-btn" data-add="Кав'ярня на краю світу" aria-label="Купити книжку «Кав'ярня на краю світу»">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- 2 -->
+          <article class="card-p reveal d1" data-category="fiction">
+            <div class="card-p-media">
+              <span class="tag new">Вибір редакції</span>
+              <button class="wishlist" aria-label="Додати книжку до списку бажань" aria-pressed="false">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+              </button>
+              <a href="#collection"><img src="images/тривожні люди.jpeg" alt="Обкладинка книжки «Тривожні люди»" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Роман</span>
+              <h3><a href="#collection">Тривожні люди</a></h3>
+              <div class="card-p-rate">Автор: Фредрік Бакман. Дотепна та зворушлива історія про людські слабкості, співчуття й несподівані зв'язки.</div>
+              <div class="card-p-foot">
+                <span class="price">390 грн</span>
+                <button class="add-btn" data-add="Тривожні люди" aria-label="Купити книжку «Тривожні люди»">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- 3 -->
+          <article class="card-p reveal d2" data-category="fiction">
+            <div class="card-p-media">
+              <span class="tag new">Популярне</span>
+              <button class="wishlist" aria-label="Додати книжку до списку бажань" aria-pressed="false">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+              </button>
+              <a href="#collection"><img src="images/там де співають раки.jpeg" alt="Обкладинка книжки «Там, де співають раки»" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Детективна драма</span>
+              <h3><a href="#collection">Там, де співають раки</a></h3>
+              <div class="card-p-rate">Автор: Делія Овенс. Таємниця маленького містечка, самотність і життя дівчини серед дикої природи.</div>
+              <div class="card-p-foot">
+                <span class="price">420 грн</span>
+                <button class="add-btn" data-add="Там, де співають раки" aria-label="Купити книжку «Там, де співають раки»">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- 4 -->
+          <article class="card-p reveal d3" data-category="psychology">
+            <div class="card-p-media">
+              <button class="wishlist" aria-label="Додати книжку до списку бажань" aria-pressed="false">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+              </button>
+              <a href="#collection"><img src="images/атомні звички.webp" alt="Обкладинка книжки «Атомні звички»" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Саморозвиток</span>
+              <h3><a href="#collection">Атомні звички</a></h3>
+              <div class="card-p-rate">Автор: Джеймс Клір. Практичний посібник про маленькі зміни, які поступово формують великі результати.</div>
+              <div class="card-p-foot">
+                <span class="price">450 грн</span>
+                <button class="add-btn" data-add="Атомні звички" aria-label="Купити книжку «Атомні звички»">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- 5 -->
+          <article class="card-p reveal" data-category="psychology">
+            <div class="card-p-media">
+              <button class="wishlist" aria-label="Додати книжку до списку бажань" aria-pressed="false">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+              </button>
+              <a href="#collection"><img src="images/вибір.jpeg" alt="Обкладинка книжки «Вибір»" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Психологія</span>
+              <h3><a href="#collection">Вибір</a></h3>
+              <div class="card-p-rate">Автор: Едіт Еґер. Історія про силу духу, внутрішню свободу та можливість обирати власне ставлення до життя.</div>
+              <div class="card-p-foot">
+                <span class="price">380 грн</span>
+                <button class="add-btn" data-add="Вибір" aria-label="Купити книжку «Вибір»">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- 6 -->
+          <article class="card-p reveal d1" data-category="children">
+            <div class="card-p-media">
+              <span class="tag sale">Класика</span>
+              <button class="wishlist" aria-label="Додати книжку до списку бажань" aria-pressed="false">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+              </button>
+              <a href="#collection"><img src="images/маленький принц.jpeg" alt="Обкладинка книжки «Маленький принц»" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Казка-притча</span>
+              <h3><a href="#collection">Маленький принц</a></h3>
+              <div class="card-p-rate">Автор: Антуан де Сент-Екзюпері. Знайома багатьом історія про дружбу, любов і те, що справді має значення.</div>
+              <div class="card-p-foot">
+                <span class="price">250 грн</span>
+                <button class="add-btn" data-add="Маленький принц" aria-label="Купити книжку «Маленький принц»">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- 7 -->
+          <article class="card-p reveal d2" data-category="business">
+            <div class="card-p-media">
+              <button class="wishlist" aria-label="Додати книжку до списку бажань" aria-pressed="false">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+              </button>
+              <a href="#collection"><img src="images/есенціалізм.jpeg" alt="Обкладинка книжки «Есенціалізм»" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Продуктивність</span>
+              <h3><a href="#collection">Есенціалізм</a></h3>
+              <div class="card-p-rate">Автор: Ґреґ Маккеон. Про те, як зосередитися на головному та навчитися відмовлятися від зайвого.</div>
+              <div class="card-p-foot">
+                <span class="price">410 грн</span>
+                <button class="add-btn" data-add="Есенціалізм" aria-label="Купити книжку «Есенціалізм»">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+          <!-- 8 -->
+          <article class="card-p reveal d3" data-category="children">
+            <div class="card-p-media">
+              <span class="tag new">Улюблена класика</span>
+              <button class="wishlist" aria-label="Додати книжку до списку бажань" aria-pressed="false">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-9.2-9C1.3 8 2.6 5 5.6 4.6c2-.3 3.4.9 4.4 2.4 1-1.5 2.4-2.7 4.4-2.4 3 .4 4.3 3.4 2.8 6.4C19 15.5 12 20 12 20z"/></svg>
+              </button>
+              <a href="#collection"><img src="images/гаррі поттер.jpeg" alt="Обкладинка книжки «Гаррі Поттер і філософський камінь»" width="600" height="600" loading="lazy"></a>
+            </div>
+            <div class="card-p-body">
+              <span class="card-p-cat">Фентезі</span>
+              <h3><a href="#collection">Гаррі Поттер і філософський камінь</a></h3>
+              <div class="card-p-rate">Автор: Дж. К. Ролінґ. Початок чарівної пригоди, сповненої таємниць, дружби й відкриттів.</div>
+              <div class="card-p-foot">
+                <span class="price">480 грн</span>
+                <button class="add-btn" data-add="Гаррі Поттер і філософський камінь" aria-label="Купити книжку «Гаррі Поттер і філософський камінь»">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="grid-cta">
+          <a href="#collection" class="btn-e btn-ghost btn-lg">Переглянути всі книжки</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- promo / sale -->
+    <section class="promo" id="sale" aria-labelledby="sale-title">
+      <div class="promo-grid">
+        <div class="promo-media">
+          <img src="images/знайомся з історіями.jpeg" alt="Книжкова добірка для акційного тижня" width="1200" height="800" loading="lazy">
+        </div>
+        <div class="promo-copy">
+          <span class="eyebrow on-ink">Книжковий тиждень</span>
+          <h2 id="sale-title">Знайомся з новими історіями зі знижками до <em>30%</em></h2>
+          <p>Час поповнити книжкову полицю! Обирай цікаві видання для себе або знаходь подарунок для людини, яка любить читати.</p>
+          <div class="countdown" id="countdown" aria-hidden="true">
+            <div class="count-cell"><b data-c="days">02</b><span>Дні</span></div>
+            <div class="count-cell"><b data-c="hours">08</b><span>Год</span></div>
+            <div class="count-cell"><b data-c="mins">45</b><span>Хв</span></div>
+            <div class="count-cell"><b data-c="secs">30</b><span>Сек</span></div>
+          </div>
+          <div class="promo-code">
+            <span>Промокод</span>
+            <b id="promoCode">BOOK10</b>
+            <button class="copy-code" id="copyCode" aria-label="Скопіювати промокод BOOK10">Скопіювати промокод</button>
+          </div>
+          <br>
+          <a href="#collection" class="btn-e btn-ghost on-ink btn-lg">Переглянути акційні книжки</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- benefits -->
+    <section class="section benefits" aria-labelledby="ben-title">
+      <div class="shell">
+        <div class="section-head center">
+          <span class="eyebrow">Чому «Книжкова полиця»</span>
+          <h2 id="ben-title">Зручне читання починається з вибору</h2>
+        </div>
+        <div class="benefit-grid">
+          <div class="benefit reveal">
+            <span class="ic" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h13v11H1zM14 7h4l3 3v4h-7z"/><circle cx="6" cy="18" r="1.8"/><circle cx="17.5" cy="18" r="1.8"/></svg>
+            </span>
+            <h3>Книжки на різні смаки</h3>
+            <p>Від світової класики до сучасних романів, психології та бізнес-літератури.</p>
+          </div>
+          <div class="benefit reveal d1">
+            <span class="ic" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+            </span>
+            <h3>Допомога з вибором</h3>
+            <p>Добірки за жанрами, настроями та інтересами допоможуть знайти свою історію.</p>
+          </div>
+          <div class="benefit reveal d2">
+            <span class="ic" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><path d="M9 12l2 2 4-4"/></svg>
+            </span>
+            <h3>Зручне замовлення</h3>
+            <p>Зрозумілий каталог, інформація про видання та простий шлях до оформлення покупки.</p>
+          </div>
+          <div class="benefit reveal d3">
+            <span class="ic" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.9 7.2 17.7l.9-5.4L4.2 8.5l5.4-.8z"/></svg>
+            </span>
+            <h3>Книжки для подарунків</h3>
+            <p>Обирай історії, які приємно дарувати друзям, рідним і собі.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- reviews -->
+    <section class="section" id="reviews" aria-labelledby="rev-title">
+      <div class="shell">
+        <div class="section-head center">
+          <span class="eyebrow">Демонстраційні відгуки для навчального макета</span>
+          <h2 id="rev-title">Книжки, які залишають враження</h2>
+          <p>Кожна історія — це маленьке відкриття.</p>
+        </div>
+        <div class="review-grid">
+          <figure class="review reveal">
+            <blockquote><b>Знайшла книжку, яку давно шукала</b><br>Дуже сподобалося, що можна обрати книжку за жанром і настроєм. Замовлення оформлюється просто, а каталог зручний.</blockquote>
+            <figcaption class="review-by">
+              <span class="avatar" style="background:var(--cobalt)" aria-hidden="true">М</span>
+              <span><b>Марія</b></span>
+            </figcaption>
+          </figure>
+          <figure class="review reveal d1">
+            <blockquote><b>Чудова ідея для подарунка</b><br>Довго не могла визначитися з подарунком подрузі. Знайшла цікаве видання, яке ідеально їй підійшло.</blockquote>
+            <figcaption class="review-by">
+              <span class="avatar" style="background:#F2C14E" aria-hidden="true">С</span>
+              <span><b>Софія</b></span>
+            </figcaption>
+          </figure>
+          <figure class="review reveal d2">
+            <blockquote><b>Хочеться повертатися за новими історіями</b><br>Люблю, коли в одному місці можна знайти і художню літературу, і книжки для саморозвитку. Хороша ідея для тих, хто багато читає.</blockquote>
+            <figcaption class="review-by">
+              <span class="avatar" style="background:#17181d" aria-hidden="true">А</span>
+              <span><b>Анна</b></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- newsletter -->
+    <section class="section newsletter" aria-labelledby="news-title">
+      <div class="shell news-inner">
+        <div>
+          <span class="eyebrow on-ink">Будь у курсі книжкових новинок</span>
+          <h2 id="news-title">Отримай 10% на перше замовлення</h2>
+          <p class="lead">Підписуйся, щоб першою дізнаватися про новинки, книжкові добірки, спеціальні пропозиції та цікаві історії від нашої команди.</p>
+        </div>
+        <form class="news-form" id="newsForm" novalidate>
+          <div class="field-row">
+            <label for="newsEmail" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Твоя електронна пошта</label>
+            <input type="email" id="newsEmail" name="email" placeholder="Твоя електронна пошта" autocomplete="email" required>
+            <button type="submit" class="btn-e">Отримати знижку</button>
+          </div>
+          <p class="news-msg" id="newsMsg" role="status" aria-live="polite"></p>
+          <p class="news-note">Підписуючись, ти погоджуєшся з політикою конфіденційності та отриманням електронних листів. Відписатися можна будь-коли.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="shell">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a class="brand" href="index.html">
+            <span class="mark" aria-hidden="true">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8l1.4-3.2A2 2 0 0 1 7.2 3.6h9.6a2 2 0 0 1 1.8 1.2L20 8M4 8h16v10.4A1.6 1.6 0 0 1 18.4 20H5.6A1.6 1.6 0 0 1 4 18.4V8zM9 12a3 3 0 0 0 6 0"/></svg>
+            </span>
+            Книжкова полиця
+          </a>
+          <p>Твій простір книжкових відкриттів. Знаходь нові історії, відкривай улюблених авторів і збирай власну бібліотеку.</p>
+          <div class="pay-row" aria-label="Книжкові жанри">
+            <span class="pay-chip">ПРОЗА</span>
+            <span class="pay-chip">РОМАНИ</span>
+            <span class="pay-chip">ДІТЯМ</span>
+            <span class="pay-chip">ФЕНТЕЗІ</span>
+            <span class="pay-chip">ПСИХОЛОГІЯ</span>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Каталог</h4>
+          <ul>
+            <li><a href="#collection">Новинки</a></li>
+            <li><a href="#collection">Бестселери</a></li>
+            <li><a href="#categories">Художня література</a></li>
+            <li><a href="#collection">Нонфікшн</a></li>
+            <li><a href="#categories">Дитячі книжки</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Допомога</h4>
+          <ul>
+            <li><a href="#">Доставка й оплата</a></li>
+            <li><a href="#">Повернення</a></li>
+            <li><a href="#">Часті запитання</a></li>
+            <li><a href="#">Контакти</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Про нас</h4>
+          <ul>
+            <li><a href="#">Наша історія</a></li>
+            <li><a href="#">Книжковий блог</a></li>
+            <li><a href="#">Співпраця з видавництвами</a></li>
+            <li><a href="#">Подарункові сертифікати</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Корисні посилання</h4>
+          <ul>
+            <li><a href="https://ubi.org.ua/uk" target="_blank" rel="noopener noreferrer">Український інститут книги</a></li>
+            <li><a href="https://www.goodreads.com/?ref=nav_hom" target="_blank" rel="noopener noreferrer">Goodreads</a></li>
+            <li><a href="https://readeat.com/kit/novynky-sichnya" target="_blank" rel="noopener noreferrer">Readeat</a></li>
+            <li><a href="https://vogue.ua/article/culture/knigi/10-naycikavishih-knizhok-yaki-mi-chitatimemo-v-2026-roci-61940.html" target="_blank" rel="noopener noreferrer">Топ-10 книжок 2026</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 «Книжкова полиця». Навчальний проєкт інтернет-магазину книжок.</span>
+        <div class="socials">
+          <a href="#" aria-label="Книжкова полиця в Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="Книжкова полиця в X">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 3h3l-6.6 7.6L21.8 21h-5.9l-4.6-6-5.3 6H3l7-8L2.6 3h6l4.2 5.5L17.5 3zm-1 16h1.6L7.6 4.7H5.9L16.5 19z"/></svg>
+          </a>
+          <a href="#" aria-label="Книжкова полиця в TikTok">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.3 2.1 1.5 3.7 3.6 4v2.6c-1.3 0-2.5-.4-3.6-1v5.9a5.7 5.7 0 1 1-5.7-5.7c.3 0 .6 0 .9.1v2.7a3 3 0 1 0 2.1 2.9V3H16z"/></svg>
+          </a>
+          <a href="#" aria-label="Книжкова полиця в Pinterest">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.1-.8-.1-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.6 2.2-.9 3.4-.2 1 .5 1.8 1.5 1.8 1.8 0 3-2.3 3-5 0-2.1-1.4-3.6-3.9-3.6a4.5 4.5 0 0 0-4.7 4.5c0 .9.3 1.5.7 2 .2.2.2.3.1.5l-.2.9c-.1.3-.3.4-.6.2-1.2-.5-1.7-1.9-1.7-3.4 0-2.5 2.1-5.6 6.4-5.6 3.4 0 5.7 2.5 5.7 5.2 0 3.5-2 6.2-4.9 6.2-1 0-1.9-.5-2.2-1.1l-.6 2.4c-.2.8-.7 1.7-1.1 2.4A10 10 0 1 0 12 2z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- toast host -->
+  <div class="toast-wrap" id="toastWrap" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="js/vendor/bootstrap.bundle.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
